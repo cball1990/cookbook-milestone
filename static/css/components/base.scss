@@ -1,0 +1,33 @@
+.top-bar {
+    background-color: $green;
+    width: 100%;
+    height: 75px;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+ h1 {
+     font-family: $main-font;
+     font-weight: 700;
+     color: $head-font-color;
+     margin-top: 25px;
+ }
+ 
+.logo-section {
+    width: 100%;
+    height: auto;
+}
+
+.main-logo {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-logo-holder {
+    width: 300px;
+    display: block;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
