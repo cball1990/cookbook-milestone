@@ -7,7 +7,7 @@
   border-bottom: 1px solid black; }
 
 h1 {
-  font-family: "Roboto Slab", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 700;
   color: black;
   margin-top: 25px; }
@@ -27,8 +27,16 @@ h1 {
   margin-left: auto;
   margin-right: auto; }
 
-.n-link {
+.add-header {
   font-family: "Roboto", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: black;
+  text-align: center;
+  margin-top: 50px; }
+
+.n-link {
+  font-family: "Roboto Slab", sans-serif;
   font-size: 25px;
   font-weight: bold;
   color: #555555;
@@ -58,5 +66,75 @@ h1 {
 #nav-list:hover {
   border-top: 2px solid #90c322;
   border-bottom: 2px solid #90c322; }
+
+.recipe-container {
+  width: 100%;
+  height: auto;
+  padding: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px; }
+
+.recipe-name {
+  font-family: "Roboto", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: black;
+  text-align: center; }
+
+.recipe-img {
+  width: 80%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 4px #dedede; }
+
+.recipe-content {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 18px;
+  color: #555555;
+  text-align: center; }
+
+.recipe-btn {
+  background-color: #f8f8f8;
+  color: #555555;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.3s;
+  box-sizing: border-box; }
+
+.recipe-btn:hover {
+  background-color: #90c322;
+  border: solid 2px #dedede; }
+
+.delete-btn {
+  background-color: #ff3232;
+  color: white;
+  border-radius: 50%;
+  float: right;
+  margin-right: 20px;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.3s; }
+
+.edit-btn {
+  background-color: #4c4cff;
+  color: white;
+  border-radius: 50%;
+  float: right;
+  margin-right: 10px;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.3s; }
+
+.edit-btn:hover {
+  background-color: #1919ff; }
+
+.delete-btn:hover {
+  background-color: #e50000; }
 
 /*# sourceMappingURL=main.css.map */

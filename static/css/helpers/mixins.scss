@@ -1,0 +1,20 @@
+@mixin container-border {
+    border: solid 4px $border;
+}
+
+@mixin content-header {
+    font: {
+        family: $main-font;
+        size: 26px;
+        weight: 700;
+    }
+    color: $head-font-color;
+}
+
+@mixin content-text {
+    font: {
+        family: $content-font;
+        size: 18px;
+    }
+    color: $main-font-color;
+}

@@ -1,4 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<div class="container-fluid">
+    <div class="row">
+        
+        {% for recipe in recipes %}
+          <p>{{recipe.name}}</p>
+            <!--<div class="col-sm-12 col-md-6 ">
+                <div class="recipe-container">
+                    <img class="recipe-img" src="">
+                    <br>
+                    <p class="recipe-name">{{recipe.name}}</p>
+                    <p class="recipe-content">{{recipe.desc}}</p>
+                    <br>
+                    <span><button class="recipe-btn">Details</button></span>
+                    <span><button class="delete-btn"><i class="material-icons">delete</i></button></span>
+                    <span><button class="edit-btn"><i class="material-icons">build</i></button></span>-->
+                </div>
+            </div>
+        {% endfor %}
+        
+    </div>
+</div>
 {% endblock %}
+
+<!--<ul class="collapsible expandable">
+                {% for recipe in recipes %}
+                    <li>
+                      <div class="red lighten-4 collapsible-header"><i class="material-icons">filter_drama</i>{{recipe.name}}</div>
+                      <div class=" red lighten-4 collapsible-body">
+                          <div><strong>Cuisine:</strong>{{recipe.cuisine}}</div>
+                          <div><strong>Description:</strong>{{recipe.desc}}</div>
+                      </div>
+                    </li>
+               {% endfor %}
+          </ul>-->
