@@ -24,7 +24,9 @@ def addrecipe():
 def recipedetail(recipe_id):
     the_recipe =  mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
     ingredient = the_recipe["ingredients"]
-    return render_template("recipedetail.html", recipe=the_recipe, ingredient=ingredient)
+    instruction = the_recipe["instructions"]
+    allergen = the_recipe["allergens"]
+    return render_template("recipedetail.html", recipe=the_recipe, ingredient=ingredient, instructions=instruction, allergens=allergen)
     
                            
                            

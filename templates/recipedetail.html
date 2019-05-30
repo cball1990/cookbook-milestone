@@ -22,15 +22,30 @@
                  {% for ingredient in ingredient %}
                  <p class="detail-desc">{{ingredient}}</p>
                  {% endfor %}
-            
+            <br>
             </div>
             <div class="col-sm-12 col-md-2">
-                <p></p>
-                <p></p>
-                <div class="detail-align"><p class="upvote-txt">Votes: {{recipe.upvotes}}</p><button class="upvote-btn"><i class="material-icons">thumb_up</i></button></div>
+                <p class="detail-align detail-header"><strong>Allergens:</strong></p>
+                <ul>
+                    {% for aller in allergens %}
+                        <li class="detail-desc">{{aller}}</li>
+                    {% endfor %}
+                </ul>
+                <br>
+                <p class="detail-align detail-header"><strong>Cooking Time:</strong></p>
+                <p class="detail-align detail-desc">{{recipe.time_taken}}</p>
+                <br>
+                <div class="detail-align"><p class="upvote-txt"><strong>Votes:</strong> {{recipe.upvotes}}</p><button class="upvote-btn"><i class="material-icons">thumb_up</i></button></div>
+            <br>
             </div>
             <div class="col-sm-12 col-md-7 detail-border">
-                
+                <p class="detail-header">Instructions: </p>
+                    <ol>
+                        {% for instruction in instructions %}
+                            <li class="detail-desc">{{instruction}}</li>
+                            <br>
+                        {% endfor %}
+                    </ol>
             </div>
         </div>
     
