@@ -1,0 +1,47 @@
+.detail-img {
+    width: 90%;
+    height: auto;
+    border-radius: 10px;
+    @include container-border;
+}
+
+.detail-header {
+    @include content-header;
+}
+
+.detail-desc {
+    @include content-text;
+}
+
+.detail-minor-data {
+    @include minor-font;
+    margin-right: 30px;
+    display: inline-block;
+}
+
+.upvote-txt {
+    @include content-text;
+    
+}
+
+.upvote-btn {
+    background-color: $off-white;
+    color: $main-font-color;
+    border-radius: 50%;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.3s;
+     box-sizing: border-box;
+}
+
+.upvote-btn:hover {
+    background-color: $green;
+    border: solid 2px $border;
+}
+
+.detail-border {
+     @include container-border;
+}
+
+.detail-align {
+    @include align-center;
+}

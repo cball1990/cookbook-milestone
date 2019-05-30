@@ -18,3 +18,15 @@
     }
     color: $main-font-color;
 }
+
+@mixin minor-font {
+    font: {
+        family: $content-font;
+        size: 12px;
+    }
+    color: $head-font-color;
+}
+
+@mixin align-center {
+    text-align: center;
+}

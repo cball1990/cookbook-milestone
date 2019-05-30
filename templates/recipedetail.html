@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<div class="container">
+    
+        <div class="row">
+            <div class="col-sm-12 col-md-5">
+                <img class="detail-img" src="{{recipe.img}}">
+            </div>
+            <div class="col-sm-12 col-md-7">
+                <p class="detail-header">{{recipe.name}}</p>
+                <p class="detail-desc">{{recipe.desc}}</p>
+                <div class="detail-minor-data">Author: {{recipe.author}}</div>
+                <div class="detail-minor-data">Date Added: {{recipe.date_added}}</div><div class="detail-minor-data">Cuisine: {{recipe.cuisine}}</div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-12 col-md-3 detail-border">
+                <p class="detail-header">Ingredients:</p>
+                 
+                 {% for ingredient in ingredient %}
+                 <p class="detail-desc">{{ingredient}}</p>
+                 {% endfor %}
+            
+            </div>
+            <div class="col-sm-12 col-md-2">
+                <p></p>
+                <p></p>
+                <div class="detail-align"><p class="upvote-txt">Votes: {{recipe.upvotes}}</p><button class="upvote-btn"><i class="material-icons">thumb_up</i></button></div>
+            </div>
+            <div class="col-sm-12 col-md-7 detail-border">
+                
+            </div>
+        </div>
+    
+</div>
+
+{% endblock %}

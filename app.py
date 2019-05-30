@@ -19,6 +19,13 @@ def home():
 @app.route('/addrecipe')
 def addrecipe():
     return render_template("add_recipe.html")
+    
+@app.route('/recipedetail/<recipe_id>')
+def recipedetail(recipe_id):
+    the_recipe =  mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
+    ingredient = the_recipe["ingredients"]
+    return render_template("recipedetail.html", recipe=the_recipe, ingredient=ingredient)
+    
                            
                            
 if __name__ == '__main__':
