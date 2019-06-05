@@ -2,6 +2,8 @@ import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from forms import recipeForm
+
 
 
 app = Flask(__name__)
@@ -9,6 +11,8 @@ app.config["MONGO_DBNAME"] = "book"
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
 mongo = PyMongo(app)
+
+
 
 @app.route('/')
 @app.route('/home')
@@ -18,7 +22,15 @@ def home():
     
 @app.route('/addrecipe')
 def addrecipe():
-    return render_template("add_recipe.html")
+    form = recipeForm()
+    instructions = instructions.split(".  ")
+    return render_template("add_recipe.html", form = form)
+
+@app.route('/insert_recipe', methods=['POST'])
+def insert_recipe():
+    recipes =  mongo.db.recipe
+    recipes.insert_one(request.form.to_dict())
+    return redirect(url_for('home'))
     
 @app.route('/recipedetail/<recipe_id>')
 def recipedetail(recipe_id):
@@ -27,6 +39,11 @@ def recipedetail(recipe_id):
     instruction = the_recipe["instructions"]
     allergen = the_recipe["allergens"]
     return render_template("recipedetail.html", recipe=the_recipe, ingredient=ingredient, instructions=instruction, allergens=allergen)
+    
+@app.route('/delete_recipe/<recipe_id>')
+def delete_recipe(recipe_id):
+    mongo.db.recipe.remove({'_id': ObjectId(recipe_id)})
+    return redirect(url_for('home'))
     
                            
                            

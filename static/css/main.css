@@ -35,6 +35,11 @@ h1 {
   text-align: center;
   margin-top: 50px; }
 
+.form-text {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 18px;
+  color: #555555; }
+
 .n-link {
   font-family: "Roboto Slab", sans-serif;
   font-size: 25px;
