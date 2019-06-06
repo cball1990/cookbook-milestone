@@ -12,7 +12,9 @@ class recipeFrom(Form):
     date_added = TextField("Date Added",[validators.Required("Please enter Todays Date In The Format dd/mm/yyyy.")])
     desc = TextAreaField("Description",[validators.Required("Please enter A Description For The Recipe.")])
     ingredients = TextAreaField("List Of Ingredients",[validators.Required("Please enter The Ingredients Needed For The Recipe.")])
-    instructions = TextAreaField("Recipe Instructions",[validators.Required("Please enter The Instructions For The Recipe.")])
+    instruction = TextAreaField("Recipe Instructions",[validators.Required("Please enter The Instructions For The Recipe.")])
     Allergens = TextAreaField("Allergens")
     submit = SubmitField("Send")
+    
+    
     

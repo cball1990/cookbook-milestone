@@ -23,13 +23,13 @@ def home():
 @app.route('/addrecipe')
 def addrecipe():
     form = recipeForm()
-    instructions = instructions.split(".  ")
     return render_template("add_recipe.html", form = form)
 
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     recipes =  mongo.db.recipe
-    recipes.insert_one(request.form.to_dict())
+    instructions = instruction.split(".  ")
+    recipes.insert_one(request.form.to_dict(instructions))
     return redirect(url_for('home'))
     
 @app.route('/recipedetail/<recipe_id>')
