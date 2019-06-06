@@ -11,7 +11,7 @@ app.config["MONGO_DBNAME"] = "book"
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
 mongo = PyMongo(app)
-
+app.secret_key = '123456'
 
 
 @app.route('/')

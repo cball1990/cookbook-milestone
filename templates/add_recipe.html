@@ -6,6 +6,30 @@
         <br>
         
         <form class="form-text">
+          {% for message in form.name.errors %}
+            <div>{{ message }}</div>
+          {% endfor %}
+          {% for message in form.img.errors %}
+            <div>{{ message }}</div>
+          {% endfor %}
+          {% for message in form.author.errors %}
+            <div>{{ message }}</div>
+          {% endfor %}
+          {% for message in form.time_taken.errors %}
+            <div>{{ message }}</div>
+          {% endfor %}
+          {% for message in form.date_added.errors %}
+            <div>{{ message }}</div>
+          {% endfor %}
+          {% for message in form.desc.errors %}
+            <div>{{ message }}</div>
+          {% endfor %}
+          {% for message in form.ingredients.errors %}
+            <div>{{ message }}</div>
+          {% endfor %}
+          {% for message in form.instruction.errors %}
+            <div>{{ message }}</div>
+          {% endfor %}
          
         </form>
         

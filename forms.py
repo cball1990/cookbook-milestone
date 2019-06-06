@@ -3,7 +3,7 @@ from wtforms import TextField, TextAreaField, SubmitField
 from wtforms import validators, ValidationError
 from datetime import time
 
-class recipeFrom(Form):
+class recipeForm(Form):
     name = TextField("Recipe Name",[validators.Required("Please enter The Recipe Name.")])
     img = TextField("Recipe Name",[validators.Required("Please enter A Valid URL."), validators.URL("Please enter A Valid URL.")])
     author = TextField("Author's Name",[validators.Required("Please enter The Recipe Creators Name.")])
