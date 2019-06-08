@@ -1,0 +1,11 @@
+.login-form {
+    @include content-text;
+    @include container-border;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 300px;
+    height: 240px;
+    padding: 20px;
+}

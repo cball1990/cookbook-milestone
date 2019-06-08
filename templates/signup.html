@@ -1,0 +1,40 @@
+{% extends 'loginbase.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+          {% for message in form.username.errors %}
+             <div>{{ message }}</div>
+          {% endfor %}
+          {% for message in form.password.errors %}
+             <div>{{ message }}</div>
+          {% endfor %}
+          
+          {% with messages = get_flashed_messages() %}
+             {% if messages %}
+                <ul class="flash-text">
+                   {% for message in messages %}
+                   <li class="flash-text">{{ message }}</li>
+                   {% endfor %}
+                </ul>
+             {% endif %}
+          {% endwith %}
+      
+          <form class="login-form" method= post>
+              <div class="login-form">
+                  {{ form.username.label }}<br>
+                  {{ form.username }}
+                   <br>
+                  {{ form.password.label }}<br>
+                  {{ form.password }}
+                  <br>
+                  {{  form.submit }}
+                  <br>
+                  <p  class="detail-minor-data"><a href="{{ url_for('login')}}">Back to login page</a></p>
+              </div>
+              
+          </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

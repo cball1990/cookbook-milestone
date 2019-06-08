@@ -17,4 +17,12 @@ class recipeForm(Form):
     submit = SubmitField("Send")
     
     
+class loginForm(Form):
+    username = TextField("Email Address", [validators.Required("Please Provide Your Email Address"), validators.Email("Please Provide Your Email Address")])
+    password = TextField("Password", [validators.Required("Please Provide Your Password")])
+    submit = SubmitField("Login")
     
+class signupForm(Form):
+    username = TextField("Email Address", [validators.Required("Please Provide Your Email Address"), validators.Email("Please Provide Your Email Address")])
+    password = TextField("Password", [validators.Required("Please Provide Your Password")])
+    submit = SubmitField("Sign Up")
