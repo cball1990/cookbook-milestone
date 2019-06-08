@@ -18,3 +18,19 @@ def login():
                 <p><input type="submit" value="Login"/></p>
                 <p class="detail-minor-data">Dont have an account? Sign up <a href="{{ url_for('signup')}}">Here</a></p>
             </form>
+            
+            
+             <form method= post>
+              <div class="login-form">
+                  {{ form.username.label }}<br>
+                  {{ form.username }}
+                   <br>
+                  {{ form.password.label }}<br>
+                  {{ form.password }}
+                  <br>
+                  {{  form.submit }}
+                  <br>
+                  <p  class="detail-minor-data">Dont have an account? Sign up <a href="{{ url_for('signup')}}">Here</a></p>
+              </div>
+              
+          </form>

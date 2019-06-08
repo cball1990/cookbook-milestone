@@ -21,7 +21,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
 mongo = PyMongo(app)
 
 @app.route('/')
-@app.route('/login', methods=['POST'])
+
+    
+@app.route('/login', methods=['POST', 'GET'])
 def login():
     loginform = loginForm()
     users = mongo.db.users
@@ -31,9 +33,8 @@ def login():
         if bcrypt.hashpw(request.form['password'].encode('utf-8'), loginuser['password'].encode('utf-8')) == loginuser['password'].encode('utf-8'):
             session['username'] = request.form['username']
             return redirect(url_for('home'))
-    
-        return render_template("login.html", form = loginform)
     flash('Invalid username/password combination')
+    
 
 @app.route('/signup', methods=['POST', 'GET'])
 def signup():
@@ -52,8 +53,6 @@ def signup():
     
     return render_template('signup.html', form = signupform)
     
-#@app.route('/signup.html', methods=['POSTS')
-#def signup_post():
     
 @app.route('/logout')
 def logout():
