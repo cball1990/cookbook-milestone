@@ -3,13 +3,6 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-          {% for message in form.username.errors %}
-             <div>{{ message }}</div>
-          {% endfor %}
-          {% for message in form.password.errors %}
-             <div>{{ message }}</div>
-          {% endfor %}
-          
            {% with messages = get_flashed_messages() %}
              {% if messages %}
                 <ul class="flash-text">
@@ -20,7 +13,7 @@
              {% endif %}
           {% endwith %}
           
-         <form action="{{ url_for('login') }}" class="login-form" method="post">
+           <form action="{{ url_for('login') }}" class="app-form" method=post>
                 <p><input type="text" name="username"/></p>
                 <p><input type="password" name="password"/></p>
                 <p><input type="submit" value="Login"/></p>

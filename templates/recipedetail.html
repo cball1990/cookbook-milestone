@@ -18,19 +18,12 @@
         <div class="row">
             <div class="col-sm-12 col-md-3 detail-border">
                 <p class="detail-header">Ingredients:</p>
-                 
-                 {% for ingredient in ingredient %}
-                 <p class="detail-desc">{{ingredient}}</p>
-                 {% endfor %}
+                 <p class="detail-desc">{{recipe.ingredients}}</p>
             <br>
             </div>
             <div class="col-sm-12 col-md-2">
                 <p class="detail-align detail-header"><strong>Allergens:</strong></p>
-                <ul>
-                    {% for aller in allergens %}
-                        <li class="detail-desc">{{aller}}</li>
-                    {% endfor %}
-                </ul>
+                        <p class="detail-align detail-desc">{{recipe.allergens}}</p>
                 <br>
                 <p class="detail-align detail-header"><strong>Cooking Time:</strong></p>
                 <p class="detail-align detail-desc">{{recipe.time_taken}}</p>
@@ -40,12 +33,8 @@
             </div>
             <div class="col-sm-12 col-md-7 detail-border">
                 <p class="detail-header">Instructions: </p>
-                    <ol>
-                        {% for instruction in instructions %}
-                            <li class="detail-desc">{{instruction}}</li>
+                            <p class="detail-desc">{{recipe.instructions}}</p>
                             <br>
-                        {% endfor %}
-                    </ol>
             </div>
         </div>
     

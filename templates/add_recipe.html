@@ -4,9 +4,7 @@
     <div class="col-sm-12">
         <p class ="add-header">Add A Recipe</p>
         <br>
-        
-        <form class="form-text">
-          {% for message in form.name.errors %}
+        {% for message in form.name.errors %}
             <div>{{ message }}</div>
           {% endfor %}
           {% for message in form.img.errors %}
@@ -30,7 +28,11 @@
           {% for message in form.instruction.errors %}
             <div>{{ message }}</div>
           {% endfor %}
-         
+         <br>
+        <form method="post">
+          <div class="app-form">
+              
+          </div>
         </form>
         
         

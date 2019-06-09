@@ -26,15 +26,19 @@ mongo = PyMongo(app)
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     loginform = loginForm()
-    users = mongo.db.users
-    loginuser = users.find_one({'username' : request.form['username']})
-    
-    if loginuser:
-        if bcrypt.hashpw(request.form['password'].encode('utf-8'), loginuser['password'].encode('utf-8')) == loginuser['password'].encode('utf-8'):
-            session['username'] = request.form['username']
-            return redirect(url_for('home'))
-    flash('Invalid username/password combination')
-    
+    if request.method == 'POST':
+        users = mongo.db.users
+        loginuser = users.find_one({'username' : request.form['username']})
+        
+        if loginuser:
+            if bcrypt.hashpw(request.form['password'].encode('utf-8'), loginuser['password']) == loginuser['password']:
+                session['username'] = request.form['username']
+                return redirect(url_for('home'))
+            else: flash('Invalid username/password combination')
+            
+        if session.get('username'):
+             return redirect(url_for('home'))
+    return render_template("login.html", form = loginform)
 
 @app.route('/signup', methods=['POST', 'GET'])
 def signup():
@@ -46,7 +50,7 @@ def signup():
             hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
             users.insert({'username' : request.form['username'], 'password' : hashpass})
             session['username'] = request.form['username']
-            flash('You are now signed in as' + session['user'])
+            flash('You are now signed in as' + session['username'])
             return redirect(url_for('home'))
         
         flash('That username already exists') 
@@ -80,10 +84,7 @@ def insert_recipe():
 @app.route('/recipedetail/<recipe_id>')
 def recipedetail(recipe_id):
     the_recipe =  mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
-    ingredient = the_recipe["ingredients"]
-    instruction = the_recipe["instructions"]
-    allergen = the_recipe["allergens"]
-    return render_template("recipedetail.html", recipe=the_recipe, ingredient=ingredient, instructions=instruction, allergens=allergen)
+    return render_template("recipedetail.html", recipe=the_recipe)
     
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):

@@ -1,9 +1,9 @@
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import TextField, TextAreaField, SubmitField
 from wtforms import validators, ValidationError
 from datetime import time
 
-class recipeForm(Form):
+class recipeForm(FlaskForm):
     name = TextField("Recipe Name",[validators.Required("Please enter The Recipe Name.")])
     img = TextField("Recipe Name",[validators.Required("Please enter A Valid URL."), validators.URL("Please enter A Valid URL.")])
     author = TextField("Author's Name",[validators.Required("Please enter The Recipe Creators Name.")])
@@ -17,12 +17,12 @@ class recipeForm(Form):
     submit = SubmitField("Send")
     
     
-class loginForm(Form):
+class loginForm(FlaskForm):
     username = TextField("Email Address", [validators.Required("Please Provide Your Email Address"), validators.Email("Please Provide Your Email Address")])
     password = TextField("Password", [validators.Required("Please Provide Your Password")])
     submit = SubmitField("Login")
     
-class signupForm(Form):
+class signupForm(FlaskForm):
     username = TextField("Email Address", [validators.Required("Please Provide Your Email Address"), validators.Email("Please Provide Your Email Address")])
     password = TextField("Password", [validators.Required("Please Provide Your Password")])
     submit = SubmitField("Sign Up")
