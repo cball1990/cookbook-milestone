@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="col-sm-12">
+        <p class ="add-header">Edit A Recipe</p>
+        <br>
+       
+        <form action="{{ url_for('updaterecipe', recipe_id=recipe._id) }}" method="post">
+          <div class="add-form">
+              <div>
+                  {{ form.name.label }}<br>
+                  {{ form.name(value=recipe.name )}}
+                   <br>
+                   {{ form.img.label }}<br>
+                      {{ form.img(value=recipe.img ) }}
+                   <br>
+                   {{ form.author.label }}<br>
+                      {{ form.author(value=recipe.author ) }}
+                   <br>
+                   {{ form.cuisine.label }}<br>
+                  {{ form.cuisine(value=recipe.cuisine ) }}
+                   <br>
+                   {{ form.time_taken.label }}<br>
+                  {{ form.time_taken(value=recipe.time_taken ) }}
+                   <br>
+                   {{ form.date_added.label }}<br>
+                  {{ form.date_added(value=recipe.date_added ) }}
+                   <br>
+                   {{ form.desc.label }}<br>
+                  {{ form.desc(value=recipe.desc, class="text-area") }}
+                   <br>
+                   {{ form.ingredients.label }}<br>
+                  {{ form.ingredients(value=recipe.ingredients, class="text-area" ) }}
+                   <br>
+                   {{ form.instruction.label }}<br>
+                  {{ form.instruction(value=recipe.instructions, class="text-area" ) }}
+                   <br>
+                   {{ form.allergens.label }}<br>
+                  {{ form.allergens(value=recipe.allergens ) }}
+                   <br>
+                   <br>
+                  {{ form.submit }}
+                   <br>
+                   
+              </div>
+              
+          </div>
+        </form>
+    </div>
+    </div>
+        <br>
+{% endblock %}

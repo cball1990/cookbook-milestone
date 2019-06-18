@@ -12,7 +12,7 @@
                     <br>
                     <span><a href="{{url_for('recipedetail', recipe_id=recipe._id)}}"><button class="recipe-btn">Details</button></a></span>
                     <span><a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}"><button class="delete-btn"><i class="material-icons">delete</i></button></a></span>
-                    <span><button class="edit-btn"><i class="material-icons">build</i></button></span>
+                    <span><a href="{{url_for('editrecipe', recipe_id=recipe._id)}}"><button class="edit-btn"><i class="material-icons">build</i></button></a></span>
                 </div>
             </div>
         {% endfor %}

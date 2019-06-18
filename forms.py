@@ -5,7 +5,7 @@ from datetime import time
 
 class recipeForm(FlaskForm):
     name = TextField("Recipe Name",[validators.Required("Please enter The Recipe Name.")])
-    img = TextField("Recipe Name",[validators.Required("Please enter A Valid URL."), validators.URL("Please enter A Valid URL.")])
+    img = TextField("Recipe Image",[validators.Required("Please enter A Valid URL."), validators.URL("Please enter A Valid URL.")])
     author = TextField("Author's Name",[validators.Required("Please enter The Recipe Creators Name.")])
     cuisine = TextField("Cusine Type",[validators.Required("Please enter The Cuisine Category")])
     time_taken = TextField("Cooking Time",[validators.Required("Please enter The Length Of Time It Take To Make The Recipe.")])
@@ -13,9 +13,21 @@ class recipeForm(FlaskForm):
     desc = TextAreaField("Description",[validators.Required("Please enter A Description For The Recipe.")])
     ingredients = TextAreaField("List Of Ingredients",[validators.Required("Please enter The Ingredients Needed For The Recipe.")])
     instruction = TextAreaField("Recipe Instructions",[validators.Required("Please enter The Instructions For The Recipe.")])
-    Allergens = TextAreaField("Allergens")
+    allergens = TextAreaField("Allergens")
     submit = SubmitField("Send")
     
+class editRecipeForm(FlaskForm):
+    name = TextField("Recipe Name",[validators.Required("Please enter The Recipe Name.")])
+    img = TextField("Recipe Image",[validators.Required("Please enter A Valid URL."), validators.URL("Please enter A Valid URL.")])
+    author = TextField("Author's Name",[validators.Required("Please enter The Recipe Creators Name.")])
+    cuisine = TextField("Cusine Type",[validators.Required("Please enter The Cuisine Category")])
+    time_taken = TextField("Cooking Time",[validators.Required("Please enter The Length Of Time It Take To Make The Recipe.")])
+    date_added = TextField("Date Added",[validators.Required("Please enter Todays Date In The Format dd/mm/yyyy.")])
+    desc = TextAreaField("Description",[validators.Required("Please enter A Description For The Recipe.")])
+    ingredients = TextAreaField("List Of Ingredients",[validators.Required("Please enter The Ingredients Needed For The Recipe.")])
+    instruction = TextAreaField("Recipe Instructions",[validators.Required("Please enter The Instructions For The Recipe.")])
+    allergens = TextAreaField("Allergens")
+    submit = SubmitField("Send")
     
 class loginForm(FlaskForm):
     username = TextField("Email Address", [validators.Required("Please Provide Your Email Address"), validators.Email("Please Provide Your Email Address")])

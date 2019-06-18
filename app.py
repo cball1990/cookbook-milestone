@@ -6,6 +6,7 @@ from flask_login import LoginManager
 from forms import recipeForm
 from forms import loginForm
 from forms import signupForm
+from forms import editRecipeForm
 import bcrypt
 
 
@@ -40,6 +41,7 @@ def login():
              return redirect(url_for('home'))
     return render_template("login.html", form = loginform)
 
+
 @app.route('/signup', methods=['POST', 'GET'])
 def signup():
     signupform = signupForm()
@@ -50,7 +52,6 @@ def signup():
             hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
             users.insert({'username' : request.form['username'], 'password' : hashpass})
             session['username'] = request.form['username']
-            flash('You are now signed in as' + session['username'])
             return redirect(url_for('home'))
         
         flash('That username already exists') 
@@ -91,7 +92,30 @@ def delete_recipe(recipe_id):
     mongo.db.recipe.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('home'))
     
+@app.route('/editrecipe/<recipe_id>', methods=['GET'])
+def editrecipe(recipe_id):
+     edit_recipe =  mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
+     form = editRecipeForm()
+     return render_template('editrecipe.html', recipe = edit_recipe,
+                           form = form)
                            
+@app.route('/updaterecipe/<recipe_id>', methods=['POST'])
+def updaterecipe(recipe_id):
+    updateRecipe = mongo.db.recipes
+    updateRecipe.update( {'_id': ObjectId(recipe_id)},
+    {
+        'name':request.form.get('name'),
+        'img':request.form.get('img'),
+        'author': request.form.get('author'),
+        'cuisine': request.form.get('cuisine'),
+        'date_added':request.form.get('date_added'),
+        'time_taken':request.form.get('time_taken'),
+        'desc':request.form.get('desc'),
+        'ingredients':request.form.get('ingredients'),
+        'instruction':request.form.get('instruction'),
+        'allergens':request.form.get('allergens')
+    })
+    return redirect(url_for('home'))
                            
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
