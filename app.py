@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, redirect, request, session, url_for, Blueprint, flash
 from flask_pymongo import PyMongo
+from pymongo import ReturnDocument 
 from bson.objectid import ObjectId
 from flask_login import LoginManager
 from forms import recipeForm
@@ -92,7 +93,7 @@ def delete_recipe(recipe_id):
     mongo.db.recipe.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('home'))
     
-@app.route('/editrecipe/<recipe_id>', methods=['GET'])
+@app.route('/editrecipe/<recipe_id>')
 def editrecipe(recipe_id):
      edit_recipe =  mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
      form = editRecipeForm()
@@ -101,21 +102,22 @@ def editrecipe(recipe_id):
                            
 @app.route('/updaterecipe/<recipe_id>', methods=['POST'])
 def updaterecipe(recipe_id):
-    updateRecipe = mongo.db.recipes
-    updateRecipe.update( {'_id': ObjectId(recipe_id)},
-    {
-        'name':request.form.get('name'),
-        'img':request.form.get('img'),
-        'author': request.form.get('author'),
-        'cuisine': request.form.get('cuisine'),
-        'date_added':request.form.get('date_added'),
-        'time_taken':request.form.get('time_taken'),
-        'desc':request.form.get('desc'),
-        'ingredients':request.form.get('ingredients'),
-        'instruction':request.form.get('instruction'),
-        'allergens':request.form.get('allergens')
-    })
-    return redirect(url_for('home'))
+    if request.method == 'POST':
+        updateRecipe = mongo.db.recipes
+        updateRecipe.find_one_and_update( 
+        {"_id": ObjectId(recipe_id)}, { "$set":   
+            {'name':request.form.get('name'),
+            'img':request.form.get('img'),
+            'author': request.form.get('author'),
+            'cuisine': request.form.get('cuisine'),
+            'date_added':request.form.get('date_added'),
+            'time_taken':request.form.get('time_taken'),
+            'desc':request.form.get('desc'),
+            'ingredients':request.form.get('ingredients'),
+            'instructions':request.form.get('instruction'),
+            'allergens':request.form.get('allergens')}
+        })
+        return redirect(url_for('home'))
                            
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
