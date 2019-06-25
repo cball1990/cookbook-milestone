@@ -75,6 +75,7 @@ def home():
 @app.route('/addrecipe')
 def addrecipe():
     form = recipeForm()
+    form.upvotes.default = 0
     return render_template("add_recipe.html", form = form)
 
 @app.route('/insert_recipe', methods=['POST'])
@@ -87,6 +88,12 @@ def insert_recipe():
 def recipedetail(recipe_id):
     the_recipe =  mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
     return render_template("recipedetail.html", recipe=the_recipe)
+
+@app.route('/upvote/<recipe_id>', methods=['POST'])
+def upvote(recipe_id):
+    the_recipe =  mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
+    the_recipe.update({'$inc': {'upvotes': 1}})
+    return render_template("recipedetail.html", recipe=the_recipe)
     
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
@@ -97,15 +104,16 @@ def delete_recipe(recipe_id):
 def editrecipe(recipe_id):
      edit_recipe =  mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
      form = editRecipeForm()
+     form.upvotes.default = 0
      return render_template('editrecipe.html', recipe = edit_recipe,
                            form = form)
                            
 @app.route('/updaterecipe/<recipe_id>', methods=['POST'])
 def updaterecipe(recipe_id):
     if request.method == 'POST':
-        updateRecipe = mongo.db.recipes
-        updateRecipe.find_one_and_update( 
-        {"_id": ObjectId(recipe_id)}, { "$set":   
+        updateRecipe = mongo.db.recipe
+        updateRecipe.update( 
+        {"_id": ObjectId(recipe_id)},   
             {'name':request.form.get('name'),
             'img':request.form.get('img'),
             'author': request.form.get('author'),
@@ -116,7 +124,7 @@ def updaterecipe(recipe_id):
             'ingredients':request.form.get('ingredients'),
             'instructions':request.form.get('instruction'),
             'allergens':request.form.get('allergens')}
-        })
+        )
         return redirect(url_for('home'))
                            
 if __name__ == '__main__':
