@@ -75,13 +75,15 @@ def home():
 @app.route('/addrecipe')
 def addrecipe():
     form = recipeForm()
-    form.upvotes.default = 0
+    form.upvotes.data = 0
     return render_template("add_recipe.html", form = form)
 
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     recipes =  mongo.db.recipe
-    recipes.insert_one(request.form.to_dict())
+    dict_values = request.form.to_dict()
+    dict_values['upvotes'] = 1
+    recipes.insert_one(dict_values)
     return redirect(url_for('home'))
     
 @app.route('/recipedetail/<recipe_id>')
@@ -104,7 +106,7 @@ def delete_recipe(recipe_id):
 def editrecipe(recipe_id):
      edit_recipe =  mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
      form = editRecipeForm()
-     form.upvotes.default = 0
+     form.upvotes.data = 0
      return render_template('editrecipe.html', recipe = edit_recipe,
                            form = form)
                            

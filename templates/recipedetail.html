@@ -28,7 +28,7 @@
                 <p class="detail-align detail-header"><strong>Cooking Time:</strong></p>
                 <p class="detail-align detail-desc">{{recipe.time_taken}}</p>
                 <br>
-                <div class="detail-align"><p class="upvote-txt"><strong>Votes:</strong> {{recipe.upvotes}}</p><form action="{{ url_for('upvote')}}" method="post"><button type="submit" class="upvote-btn"><i class="material-icons">thumb_up</i></button></form></div>
+                <div class="detail-align"><p class="upvote-txt"><strong>Votes:</strong> {{recipe.upvotes}}</p><form action="{{ url_for('upvote',recipe_id=recipe._id)}}" method="post"><button type="submit" class="upvote-btn"><i class="material-icons">thumb_up</i></button></form></div>
             <br>
             </div>
             <div class="col-sm-12 col-md-7 detail-border">
