@@ -39,6 +39,7 @@
                    {{ form.allergens.label }}<br>
                   {{ form.allergens(value=recipe.allergens ) }}
                     <br>
+                    {{ form.upvotes(value=recipe.upvotes, class="hidden-field") }}
                    <br>
                   {{ form.submit }}
                    <br>

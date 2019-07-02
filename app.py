@@ -16,7 +16,6 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = "book"
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 app.secret_key = os.getenv('SECRET_KEY')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
 
 
 
@@ -93,9 +92,8 @@ def recipedetail(recipe_id):
 
 @app.route('/upvote/<recipe_id>', methods=['POST'])
 def upvote(recipe_id):
-    the_recipe =  mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
-    the_recipe.update({'$inc': {'upvotes': 1}})
-    return render_template("recipedetail.html", recipe=the_recipe)
+    mongo.db.recipe.update({"_id": ObjectId(recipe_id)},{'$inc':{'upvotes': 1}})
+    return redirect(url_for('recipedetail',recipe_id=recipe_id))
     
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):

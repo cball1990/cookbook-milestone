@@ -27,6 +27,7 @@ class editRecipeForm(FlaskForm):
     ingredients = TextAreaField("List Of Ingredients",[validators.Required("Please enter The Ingredients Needed For The Recipe.")])
     instruction = TextAreaField("Recipe Instructions",[validators.Required("Please enter The Instructions For The Recipe.")])
     allergens = TextAreaField("Allergens")
+    upvotes = TextField("Upvotes")
     submit = SubmitField("Send")
     
 class loginForm(FlaskForm):
