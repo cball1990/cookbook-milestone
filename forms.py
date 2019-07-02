@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import TextField, TextAreaField, SubmitField
+from wtforms import TextField, TextAreaField, SubmitField, IntegerField
 from wtforms import validators, ValidationError
 from datetime import time
 
@@ -14,6 +14,7 @@ class recipeForm(FlaskForm):
     ingredients = TextAreaField("List Of Ingredients",[validators.Required("Please enter The Ingredients Needed For The Recipe.")])
     instruction = TextAreaField("Recipe Instructions",[validators.Required("Please enter The Instructions For The Recipe.")])
     allergens = TextAreaField("Allergens")
+    upvotes = IntegerField("Upvotes")
     submit = SubmitField("Send")
     
 class editRecipeForm(FlaskForm):
@@ -27,7 +28,7 @@ class editRecipeForm(FlaskForm):
     ingredients = TextAreaField("List Of Ingredients",[validators.Required("Please enter The Ingredients Needed For The Recipe.")])
     instruction = TextAreaField("Recipe Instructions",[validators.Required("Please enter The Instructions For The Recipe.")])
     allergens = TextAreaField("Allergens")
-    upvotes = TextField("Upvotes")
+    upvotes = IntegerField("Upvotes")
     submit = SubmitField("Send")
     
 class loginForm(FlaskForm):
