@@ -25,7 +25,7 @@
               {% for message in form.ingredients.errors %}
                 <div>{{ message }}</div>
               {% endfor %}
-              {% for message in form.instruction.errors %}
+              {% for message in form.instructions.errors %}
                 <div>{{ message }}</div>
               {% endfor %}
          <br>
@@ -36,32 +36,39 @@
                       {{ form.name.label }}<br>
                       {{ form.name }}
                        <br>
-                       {{ form.img.label }}<br>
-                          {{ form.img }}
                        <br>
+                       {{ form.img.label }}<br>
+                       {{ form.img }}
+                       <p class="detail-minor-data">Please Use A URL For The Image</p>
                        {{ form.author.label }}<br>
-                          {{ form.author }}
+                       {{ form.author }}
+                       <br>
                        <br>
                        {{ form.cuisine.label }}<br>
-                      {{ form.cuisine }}
+                       {{ form.cuisine }}
+                       <br>
                        <br>
                        {{ form.time_taken.label }}<br>
-                      {{ form.time_taken }}
+                       {{ form.time_taken }}
+                       <br>
                        <br>
                        {{ form.date_added.label }}<br>
-                      {{ form.date_added }}
-                       <br>
+                       {{ form.date_added }}
+                       <p class="detail-minor-data">DD/MM/YY</p><br>
                        {{ form.desc.label }}<br>
-                      {{ form.desc(class="text-area") }}
+                       {{ form.desc(class="text-area") }}
+                       <br>
                        <br>
                        {{ form.ingredients.label }}<br>
-                      {{ form.ingredients(class="text-area")  }}
+                       {{ form.ingredients(class="text-area")  }}
                        <br>
-                       {{ form.instruction.label }}<br>
-                      {{ form.instruction(class="text-area")  }}
+                       <br>
+                       {{ form.instructions.label }}<br>
+                       {{ form.instructions(class="text-area")  }}
+                       <br>
                        <br>
                        {{ form.allergens.label }}<br>
-                      {{ form.allergens }}
+                       {{ form.allergens }}
                       <br>
                       {{ form.upvotes(class="hidden-field") }}
                        <br>
