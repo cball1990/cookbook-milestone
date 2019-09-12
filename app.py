@@ -8,6 +8,7 @@ from forms import recipeForm
 from forms import loginForm
 from forms import signupForm
 from forms import editRecipeForm
+from forms import sortfield
 import bcrypt
 
 
@@ -68,8 +69,10 @@ def logout():
 @app.route('/home')
 def home():
     if 'username' in session:
-        return render_template("home.html",
-            recipes=mongo.db.recipe.find()) 
+        form = sortfield()
+        sortField = dict(form).get(form.sortby.data)
+        return render_template("home.html", form = form,
+            recipes=mongo.db.recipe.find().sort(sortField, 1)) 
     
 @app.route('/addrecipe')
 def addrecipe():
