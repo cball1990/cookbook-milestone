@@ -2,15 +2,13 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-         <form action="{{ url_for('home') }}"method="get">
-            <div class="add-form">
-                 <div>
-                          {{ form.sortby.label }}<br>
-                          {{ form.sortby }}{{ form.submit }}
-                           <br>
-                 </div>
-            </div>
-         </form>
+         <form action="{{ url_for('home') }}" class="app-form" method="post">
+                <select name="sorting" value="name">
+                  <option value="name">Name</option>
+                  <option value="upvotes">Votes</option>
+                </select>
+                <p><input type="submit" value="Sort"/></p>
+            </form>
         {% for recipe in recipes %}
             <div class="col-sm-12 col-md-4 ">
                 <div class="recipe-container">

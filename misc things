@@ -1,3 +1,19 @@
 logo adress : http://www.thelogomix.com/files/imagecache/v3-logo-detail/cookbook6-06.png
 
 sass --watch input.scss
+
+@app.route('/home')
+def home():
+    if 'username' in session:
+        form = sortfield()
+        sortField = dict(form).get(form.sortby.data)
+        return render_template("home.html", form = form,
+            recipes=mongo.db.recipe.find().sort(sortField, 1))
+            
+@app.route('/home')
+def home():
+    if 'username' in session:
+        form = sortfield()
+        sortField = dict(form).get(form.sortby.data)
+        return render_template("home.html", form = form,
+            recipes=mongo.db.recipe.find().sort(sortField, 1))

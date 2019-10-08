@@ -69,10 +69,9 @@ def logout():
 @app.route('/home')
 def home():
     if 'username' in session:
-        form = sortfield()
-        sortField = dict(form).get(form.sortby.data)
-        return render_template("home.html", form = form,
-            recipes=mongo.db.recipe.find().sort(sortField, 1)) 
+        sortby = request.form.get('sorting')
+        return render_template("home.html", sortby = sortby,
+            recipes=mongo.db.recipe.find().sort(sortby, 1)) 
     
 @app.route('/addrecipe')
 def addrecipe():
