@@ -2,13 +2,18 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-         <form action="{{ url_for('home') }}" class="app-form" method="post">
-                <select name="sorting" value="name">
-                  <option value="name">Name</option>
-                  <option value="upvotes">Votes</option>
-                </select>
-                <p><input type="submit" value="Sort"/></p>
-            </form>
+        <div class="col-sm-12">
+            <br>
+             <form action="{{ url_for('home') }}" class="sort-form" method="post">
+                    <select name="sorting">
+                      <option value="name">Name</option>
+                      <option value="upvotes">Votes</option>
+                    </select>
+                    <p><input type="submit" value="Sort"/></p>
+              </form>
+        </div>
+    </div>
+    <div class="row">
         {% for recipe in recipes %}
             <div class="col-sm-12 col-md-4 ">
                 <div class="recipe-container">
@@ -22,9 +27,9 @@
                     <span><a href="{{url_for('editrecipe', recipe_id=recipe._id)}}"><button class="edit-btn"><i class="material-icons">build</i></button></a></span>
                 </div>
             </div>
+    
         {% endfor %}
-        
-    </div>
+    </div>    
 </div>
 {% endblock %}
 

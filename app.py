@@ -66,13 +66,16 @@ def logout():
     return redirect(url_for('login'))
     
     
-@app.route('/home')
+@app.route('/home', methods=['POST', 'GET'])
 def home():
-    if 'username' in session:
+    if request.method == 'POST':
         sortby = request.form.get('sorting')
+        mystring = str(sortby)
         return render_template("home.html", sortby = sortby,
             recipes=mongo.db.recipe.find().sort(sortby, 1)) 
-    
+ 
+    return render_template("home.html",
+            recipes=mongo.db.recipe.find())   
 @app.route('/addrecipe')
 def addrecipe():
     form = recipeForm()
