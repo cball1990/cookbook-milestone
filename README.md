@@ -1,10 +1,10 @@
-#The Cookbook App  
+# The Cookbook App  
 
 The idea behind this project was to create an online cookbook app using python and either SQL or MongoDB.  
 The main functionality of the app is to allow users to look up exsisting recipes, have the  
 ability too add and edit existing recipes, and to delete any that were no longer requires.  
 
-###UX  
+### UX  
 
 A person using this app would want an easy and simple way to store recipes and retrieve the information  
 so they could then either edit the information or use the recipe.  Because of this I decided  
@@ -17,9 +17,9 @@ I then created this [Wireframe](https://github.com/cball1990/cookbook-milestone/
 I didn't change too much of the design ideas from the orginal wireframe and I think this is due to the  
 research I did before embarking on this project.  
 
-###Features  
+### Features  
 
-####Existing Features  
+#### Existing Features  
 
 The main features of the app is the ability to add, edit, delete and look up recipes.  
 Once you log into the app the main page has all the recipes displayed, you can sort  
@@ -32,7 +32,7 @@ only 2 links for home and for the add recipe feature, this take you to a form th
 allows you to add details for a recipe along with basic instructions on how to fill  
 the form out.
 
-####Features for the future
+#### Features for the future
 
 A good feature that could be added is the ability to save recipes to your own recipes  
 section under a my account page, this would allow people  to save their favourite recipes  
@@ -42,6 +42,6 @@ to edit or delete the recipe, this would stop people from deleteing everything.
 The third feature I would add in the future is when you view a recipe, you would  
 be able to click a button that creates a shopping list of ingrediants for you.  
 
-###Technologies Used  
+### Technologies Used  
 
 
