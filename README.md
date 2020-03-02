@@ -44,4 +44,30 @@ be able to click a button that creates a shopping list of ingrediants for you.
 
 ### Technologies Used  
 
+  
++ [Bootstrap](https://getbootstrap.com/)
+    - Used to simplify making the app responsive and other small bits of css
+    such as floats and border rounding.  
++ [Google Fonts](https://fonts.google.com/)
+    - Used to find fonts to use for the text on the webpage.    
++ [HTML](https://html.com/)
+    - Used to create content on the webpage.  
++ Python  
+    - Python was used for all of the backend code.  
++ Flask
+    - Flask was used for all the templating and routing of the project aswell as talking to the database.  
++ Mongodb  
+    - Mongodb was the database I used to hold all the information on the recipes etc.  
 
+## Deployment  
+
+To deploy this app I used Herouku. To do this I had to add a requirements.txt file and  
+a Procfile in order for heroku to be able to run the code and get it deployed. When you first visit the  
+app you are required to log in to view the recipes and to make changes. To run the app within the IDE you  
+need to  type in the terminal- python app.py .  
+
+## Credits 
+
+#### Media  
+
++ Page Logo - Taken from [www.thelogomix.com](http://www.thelogomix.com/files/imagecache/v3-logo-detail/cookbook6-06.png) and edited to be the right colour.
