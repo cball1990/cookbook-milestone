@@ -17,3 +17,17 @@ def home():
         sortField = dict(form).get(form.sortby.data)
         return render_template("home.html", form = form,
             recipes=mongo.db.recipe.find().sort(sortField, 1))
+
+class editRecipeForm(FlaskForm):
+    name = TextField("Recipe Name",[validators.Required("Please enter The Recipe Name.")])
+    img = TextField("Recipe Image",[validators.Required("Please enter A Valid URL."), validators.URL("Please enter A Valid URL.")])
+    author = TextField("Author's Name",[validators.Required("Please enter The Recipe Creators Name.")])
+    cuisine = TextField("Cusine Type",[validators.Required("Please enter The Cuisine Category")])
+    time_taken = TextField("Cooking Time",[validators.Required("Please enter The Length Of Time It Take To Make The Recipe.")])
+    date_added = DateField("Date Added",[validators.Required("Please enter Todays Date In The Format dd/mm/yyyy.")])
+    desc = TextAreaField("Description",[validators.Required("Please enter A Description For The Recipe.")])
+    ingredients = TextAreaField("List Of Ingredients",[validators.Required("Please enter The Ingredients Needed For The Recipe.")])
+    instructions = TextAreaField("Recipe Instructions",[validators.Required("Please enter The Instructions For The Recipe.")])
+    allergens = TextAreaField("Allergens")
+    upvotes = IntegerField("Upvotes")
+    submit = SubmitField("Send")

@@ -3,6 +3,7 @@ from flask import Flask, render_template, redirect, request, session, url_for, B
 from flask_pymongo import PyMongo
 from pymongo import ReturnDocument 
 from bson.objectid import ObjectId
+from decouple import config
 from flask_login import LoginManager
 from forms import recipeForm
 from forms import loginForm
@@ -11,12 +12,15 @@ from forms import editRecipeForm
 from forms import sortfield
 import bcrypt
 
+if os.path.exists("env.py"):
+    import env
 
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = "book"
-app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
-app.secret_key = os.getenv('SECRET_KEY')
+app.config["MONGO_URI"] = os.environ.get('MONGO_URI', 'mongodb://localhost')
+app.secret_key = os.environ.get('SECRET_KEY')
+
 
 
 
