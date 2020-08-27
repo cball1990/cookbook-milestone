@@ -6,9 +6,7 @@ from bson.objectid import ObjectId
 from decouple import config
 from flask_login import LoginManager
 from forms import recipeForm
-from forms import loginForm
 from forms import signupForm
-from forms import editRecipeForm
 from forms import sortfield
 import bcrypt
 
@@ -31,7 +29,6 @@ mongo = PyMongo(app)
     
 @app.route('/login', methods=['POST', 'GET'])
 def login():
-    loginform = loginForm()
     if request.method == 'POST':
         users = mongo.db.users
         loginuser = users.find_one({'username' : request.form['username']})
@@ -44,7 +41,7 @@ def login():
             
         if session.get('username'):
              return redirect(url_for('home'))
-    return render_template("login.html", form = loginform)
+    return render_template("login.html")
 
 
 @app.route('/signup', methods=['POST', 'GET'])
@@ -112,10 +109,7 @@ def delete_recipe(recipe_id):
 @app.route('/editrecipe/<recipe_id>')
 def editrecipe(recipe_id):
      edit_recipe =  mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
-     form = editRecipeForm()
-     form.upvotes.data = 0
-     return render_template('editrecipe.html', recipe = edit_recipe,
-                           form = form)
+     return render_template('editrecipe.html', recipe = edit_recipe)
                            
 @app.route('/updaterecipe/<recipe_id>', methods=['POST'])
 def updaterecipe(recipe_id):
@@ -132,7 +126,8 @@ def updaterecipe(recipe_id):
             'desc':request.form.get('desc'),
             'ingredients':request.form.get('ingredients'),
             'instructions':request.form.get('instruction'),
-            'allergens':request.form.get('allergens')}
+            'allergens':request.form.get('allergens'),
+            'upvotes':request.form.get('upvotes')}
         )
         return redirect(url_for('home'))
                            

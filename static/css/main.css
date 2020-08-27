@@ -275,11 +275,12 @@
 .fill-screen {
     height: auto;
 }
-
-@media only screen and (min-width: 892px) {
+@media only screen and (min-width: 768px) {
     .fill-screen {
-    height: 800px;
+    min-height: 800px;
 }
-
+    }
+.body {
+    height: auto;
 }
 /*# sourceMappingURL=main.css.map */

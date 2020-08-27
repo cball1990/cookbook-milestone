@@ -7,48 +7,30 @@
         <form action="{{ url_for('updaterecipe', recipe_id=recipe._id) }}" method="post">
             <div class="add-form">
                 <div>
-                    {{ form.name.label }}<br>
-                    {{ form.name(value=recipe.name )}}
-                    <br>
-                    <br>
-                    {{ form.img.label }}<br>
-                    {{ form.img(value=recipe.img ) }}
-                    <p class="detail-minor-data">Please Use A URL For The Image</p>
-                    {{ form.author.label }}<br>
-                    {{ form.author(value=recipe.author ) }}
-                    <br>
-                    <br>
-                    {{ form.cuisine.label }}<br>
-                    {{ form.cuisine(value=recipe.cuisine ) }}
-                    <br>
-                    <br>
-                    {{ form.time_taken.label }}<br>
-                    {{ form.time_taken(value=recipe.time_taken ) }}
-                    <br>
-                    <br>
-                    {{ form.date_added.label }}<br>
-                    {{ form.date_added(value=recipe.date_added ) }}
-                        <p class="detail-minor-data">DD/MM/YY</p><br>
-                    {{ form.desc.label }}<br>
-                    {{ form.desc(value=recipe.desc, class="text-area") }}
-                    <br>
-                    <br>
-                    {{ form.ingredients.label }}<br>
-                    {{ form.ingredients(value=recipe.ingredients, class="text-area") }}
-                    <br>
-                    <br>
-                    {{ form.instructions.label }}<br>
-                    {{ form.instructions(value=recipe.instructions, class="text-area") }}
-                    <br>
-                    <br>
-                    {{ form.allergens.label }}<br>
-                    {{ form.allergens(value=recipe.allergens) }}
-                    <br>
-                    <br>
-                    {{ form.upvotes(value=recipe.upvotes, class="hidden-field") }}
-                    <br>
-                    {{ form.submit }}
-                    <br>
+                <label for="name">Name</label>
+                <p><input type="text" name="name" value="{{recipe.name}}"/></p>
+                <label for="img">Image</label>
+                <p><input type="url" name="img" value="{{recipe.img}}"/></p>
+                <p class="detail-minor-data">Please Use A URL For The Image</p><br>
+                <label for="author">Author</label>
+                <p><input type="text" name="author" value="{{recipe.author}}"/></p>
+                <label for="cuisine">Cuisine</label>
+                <p><input type="text" name="cuisine" value="{{recipe.cuisine}}"/></p>
+                <label for="date_added">Date Added</label>
+                <p><input type="date" name="date_added" value="{{recipe.date_added}}"/></p>
+                <label for="time_taken">Cooking Time</label>
+                <p><input type="text" name="time_taken" value="{{recipe.time_taken}}"/></p>
+                <label for="desc">Description</label>
+                <p><input type="text" name="desc" value="{{recipe.desc}}"/></p>
+                <label for="ingredients">Ingredients</label>
+                <p><textarea class="form-control" type="text" name="ingredients" class="textarea" cols="40" rows="20"/>{{recipe.ingredients}}</textarea></p>
+                <label for="instructions">Instructions</label>
+                <p><textarea class="form-control" type="text" name="instruction" class="textarea" cols="40" rows="20"/>{{recipe.instructions}}</textarea></p>
+                <label for="allergens">Allergens</label>
+                <p><textarea class="form-control" type="text" name="allergens" class="textarea" cols="40" rows="10"/>{{recipe.allergens}}</textarea></p>
+                <p class="hidden-field"><input type="number" name="upvotes" value="{{recipe.upvotes}}"/></p>
+                <p><input type="submit" value="Update"/></p>
+                    
                 </div> 
             </div>
         </form>
