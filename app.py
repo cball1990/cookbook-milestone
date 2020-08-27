@@ -5,7 +5,6 @@ from pymongo import ReturnDocument
 from bson.objectid import ObjectId
 from decouple import config
 from flask_login import LoginManager
-from forms import recipeForm
 from forms import signupForm
 from forms import sortfield
 import bcrypt
@@ -18,9 +17,6 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = "book"
 app.config["MONGO_URI"] = os.environ.get('MONGO_URI', 'mongodb://localhost')
 app.secret_key = os.environ.get('SECRET_KEY')
-
-
-
 
 mongo = PyMongo(app)
 
@@ -79,9 +75,7 @@ def home():
             recipes=mongo.db.recipe.find())   
 @app.route('/addrecipe')
 def addrecipe():
-    form = recipeForm()
-    form.upvotes.data = 0
-    return render_template("add_recipe.html", form = form)
+    return render_template("add_recipe.html")
 
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():

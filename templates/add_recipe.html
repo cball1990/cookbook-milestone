@@ -4,114 +4,37 @@
     <div class="col-sm-12">
         <p class ="add-header">Add A Recipe</p>
         <br>
-            {% for message in form.name.errors %}
-                <div>{{ message }}</div>
-              {% endfor %}
-              {% for message in form.img.errors %}
-                <div>{{ message }}</div>
-              {% endfor %}
-              {% for message in form.author.errors %}
-                <div>{{ message }}</div>
-              {% endfor %}
-              {% for message in form.time_taken.errors %}
-                <div>{{ message }}</div>
-              {% endfor %}
-              {% for message in form.date_added.errors %}
-                <div>{{ message }}</div>
-              {% endfor %}
-              {% for message in form.desc.errors %}
-                <div>{{ message }}</div>
-              {% endfor %}
-              {% for message in form.ingredients.errors %}
-                <div>{{ message }}</div>
-              {% endfor %}
-              {% for message in form.instructions.errors %}
-                <div>{{ message }}</div>
-              {% endfor %}
-         <br>
         <form action="{{ url_for('insert_recipe') }}"method="post">
-          <div class="add-form">
-              
-                  <div>
-                      {{ form.name.label }}<br>
-                      {{ form.name }}
-                       <br>
-                       <br>
-                       {{ form.img.label }}<br>
-                       {{ form.img }} <br>
-                       <p class="detail-minor-data">Please Use A URL For The Image</p><br>
-                       {{ form.author.label }}<br>
-                       {{ form.author }}
-                       <br>
-                       <br>
-                       {{ form.cuisine.label }}<br>
-                       {{ form.cuisine }}
-                       <br>
-                       <br>
-                       {{ form.time_taken.label }}<br>
-                       {{ form.time_taken }}
-                       <br>
-                       <br>
-                       {{ form.date_added.label }}<br>
-                       {{ form.date_added }}<br>
-                       <p class="detail-minor-data">DD/MM/YY</p><br>
-                       {{ form.desc.label }}<br>
-                       {{ form.desc(class="text-area") }}
-                       <br>
-                       <br>
-                       {{ form.ingredients.label }}<br>
-                       {{ form.ingredients(class="text-area")  }}
-                       <br>
-                       <br>
-                       {{ form.instructions.label }}<br>
-                       {{ form.instructions(class="text-area")  }}
-                       <br>
-                       <br>
-                       {{ form.allergens.label }}<br>
-                       {{ form.allergens }}
-                      <br>
-                      {{ form.upvotes(class="hidden-field") }}
-                       <br>
-                      {{ form.submit }}
-                       <br>
-                       
-                  </div>
-                
-              
-          </div>
+            <div class="add-form">
+                <div>
+                    <label for="name">Name</label>
+                    <p><input type="text" name="name" required/></p>
+                    <label for="img">Image</label>
+                    <p><input type="url" name="img" required/></p>
+                    <p class="detail-minor-data">Please Use A URL For The Image</p><br>
+                    <label for="author">Author</label>
+                    <p><input type="text" name="author" required/></p>
+                    <label for="cuisine">Cuisine</label>
+                    <p><input type="text" name="cuisine" required/></p>
+                    <label for="date_added">Date Added</label>
+                    <p><input type="date" name="date_added" required/></p>
+                    <label for="time_taken">Cooking Time</label>
+                    <p><input type="text" name="time_taken" required/></p>
+                    <label for="desc">Description</label>
+                    <p><input type="text" name="desc" required/></p>
+                    <label for="ingredients">Ingredients</label>
+                    <p><textarea class="form-control" type="text" name="ingredients" class="textarea" cols="40" rows="20" required/></textarea></p>
+                    <label for="instructions">Instructions</label>
+                    <p><textarea class="form-control" type="text" name="instructions" class="textarea" cols="40" rows="20" required/></textarea></p>
+                    <label for="allergens">Allergens</label>
+                    <p><textarea class="form-control" type="text" name="allergens" class="textarea" cols="40" rows="10" required/></textarea></p>
+                    <p class="hidden-field"><input type="number" name="upvotes" value="1"/></p>
+                    <p><input type="submit" value="Add"/></p>
+                </div> 
+
+            </div>
         </form>
         <br>
-        
-        
-        
-        <!--<form>
-            <div class="form-group">
-            <label class="form-text">Recipe Name</label>
-            <input type="text" class="form-control" id="name" name="name">
-          </div>
-           <div class="form-group">
-            <label class="form-text">Recipe Photo</label>
-            <input type="text" class="form-control" id="img" name="img">
-            <small id="emailHelp" class="form-text text-muted">Please use the image url</small>
-          </div>
-           <div class="form-group">
-            <label class="form-text">Authors Name</label>
-            <input type="text" class="form-control" id="author" name="author">
-          </div>
-           <div class="form-group">
-            <label class="form-text">Cuisine Type</label>
-            <input type="text" class="form-control" id="Cusine" name="cuisine">
-            <small id="emailHelp" class="form-text text-muted">e.g Chinese or Indian</small>
-          </div>
-           <div class="form-group">
-            <label class="form-text">Cooking Time</label>
-            <input type="text" class="form-control" id="time_taken" name="time_taken">
-          </div>
-           <div class="form-group">
-            <label class="form-text">Recipe Description</label>
-            <textarea class="form-control" id="name" name="name" rows="6"></textarea>
-          </div>
-        </form>-->
     </div>
 </div>
 {% endblock %}
