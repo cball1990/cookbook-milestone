@@ -15,7 +15,10 @@ looking at other food websites and different colour schemes, this lead me to cho
 a lighter colour pallet and decide what information each recipe will need to include.  
 I then created this [Wireframe](https://github.com/cball1990/cookbook-milestone/blob/master/wireframe.png) to workout the basic layout of the app and where information could be shown. 
 I didn't change too much of the design ideas from the orginal wireframe and I think this is due to the  
-research I did before embarking on this project.  
+research I did before embarking on this project. New users should be able to navigate  
+the website easily whilst also being able to use the app without confusion.  
+Returning users should be able to find, edit and add recipes with out having to navigate  
+through to many pages, Viewing recipes also needs to be a quick process.
 
 ### Features  
 
@@ -58,6 +61,20 @@ be able to click a button that creates a shopping list of ingrediants for you.
     - Flask was used for all the templating and routing of the project aswell as talking to the database.  
 + Mongodb  
     - Mongodb was the database I used to hold all the information on the recipes etc.  
+
+## Testing  
+
+to test my app I mainly used manual testing, this involved looking at every form to check  
+if i could enter the wrong information in the fields, for example, a list of numbers into  
+a url field, this ensures that users can only enter the required information into an input,  
+to test the forms further I also went through and filled in forms with missing fields to see  
+if they would validate with missing information, I also checked the responsiveness of all the  
+pages down to a minimum width of 347 pixels as the smallest mobile screens are around 355 pixels in width. 
+To do this I used chrome dev tools and different devices I own to view the app on differnt browsers and devices.   
+To help me test the app i asked friends to use the app and give me feedback on any issues they encountered,  
+this helped me catch some bugs I hadn't noticed, for example when you updated the recipes it would  
+reset the upvotes count back to 1. I also used online code validators to validate my html, css and  
+python code, (see the python validated.png for the confirmation of validated code).  
 
 ## Deployment  
 
