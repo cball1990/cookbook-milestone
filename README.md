@@ -3,24 +3,45 @@
 The idea behind this project was to create an online cookbook app using python and either SQL or MongoDB.  
 The main functionality of the app is to allow users to look up exsisting recipes, have the  
 ability too add and edit existing recipes, and to delete any that were no longer requires.  
+[View the project here](https://craigs-cookbook.herokuapp.com/).
 
-### UX  
+### UX
 
-A person using this app would want an easy and simple way to store recipes and retrieve the information  
-so they could then either edit the information or use the recipe.  Because of this I decided  
-to create a simple layout with clear links and buttons to add, edit or delete recipes.  
-I also added the ability to sort recipes by name or the amount of upvotes it has to make finding  
-the information easier. In regards to the design of the project I spent a few hours  
-looking at other food websites and different colour schemes, this lead me to choose  
-a lighter colour pallet and decide what information each recipe will need to include.  
-I then created this [Wireframe](https://github.com/cball1990/cookbook-milestone/blob/master/wireframe.png) to workout the basic layout of the app and where information could be shown. 
-I didn't change too much of the design ideas from the orginal wireframe and I think this is due to the  
-research I did before embarking on this project. New users should be able to navigate  
-the website easily whilst also being able to use the app without confusion.  
-Returning users should be able to find, edit and add recipes with out having to navigate  
-through to many pages, Viewing recipes also needs to be a quick process.
+* User Stories
+    * First Time Visitor Goals
+        1. As a first time user I should be able to signup and login easily.
+        1. A first time user should be able to navigate the app without confusion.
+        1. As a first time visitor to the app I should be able to see my saved recipes instantly
+        so i can reference them as I cook
+
+    * Returning Visitor Goals
+        1. Returning users must be able to edit and update saved recipes to make adjustments to the recipes
+        1. As a returning user I should be able to delete recipes I didn't like
+        1. As a returning visitor I am able to add new recipes through a form quickly
+
+* design   
+    * Colour scheme
+        I went for a green on white colour scheme as this expresses the feeling of freshness and cleanlness
+        when it comes to food.
+    
+    * Typography 
+        I choose Roboto and Roboto slab for my text because they are some of the most popular fonts at this time.
+
+    * Imagery 
+        Images are important in this app because users need to see what the meals look like before they make them.
+        It is often said you eat with your eyes.
+
+* Wireframe And Database Schema
+    1. [wireframe](https://github.com/cball1990/cookbook-milestone/blob/master/wireframe.png)
+    1. [Database schema](https://github.com/cball1990/cookbook-milestone/blob/master/database-schema.md)
+
+
 
 ### Features  
+
+    * Fully Responsive 
+    * The ability to add, edit, and deleted recipes
+    * User login functionality
 
 #### Existing Features  
 
@@ -64,7 +85,7 @@ be able to click a button that creates a shopping list of ingrediants for you.
 
 ## Testing  
 
-to test my app I mainly used manual testing, this involved looking at every form to check  
+To test my app I mainly used manual testing, this involved looking at every form to check  
 if i could enter the wrong information in the fields, for example, a list of numbers into  
 a url field, this ensures that users can only enter the required information into an input,  
 to test the forms further I also went through and filled in forms with missing fields to see  
@@ -75,6 +96,27 @@ To help me test the app i asked friends to use the app and give me feedback on a
 this helped me catch some bugs I hadn't noticed, for example when you updated the recipes it would  
 reset the upvotes count back to 1. I also used online code validators to validate my html, css and  
 python code, (see the python validated.png for the confirmation of validated code).  
+
+### Testing User Stories    
+     * First Time Visitor Goals
+        1. As a first time user I should be able to signup and login easily.
+            * upon entering the app the user is greeted with a login / signup page
+        1. A first time user should be able to navigate the app without confusion.
+            * the navigation bar is always at the top of the page with no extra links then what it needs
+        1. As a first time visitor to the app I should be able to see my saved recipes instantly
+        so i can reference them as I cook
+            * Upon logging in the the app all recipes are displayed on the home page with the abilty to click on them to see more details
+
+    * Returning Visitor Goals
+        1. Returning users must be able to edit and update saved recipes to make adjustments to the recipes
+            * every recipe can be edited or deleted easily with a button under each recipe
+        1. As a returning user I should be able to delete recipes I didn't like
+            * Each recipe has a delete button next to it
+        1. As a returning visitor I am able to add new recipes through a form quickly
+            * the Nav bar has an add recipe link that takes you to the add recipe form.
+            
+### Known Bugs 
+    * The edit and delete button on the home page over lap slighty just before the mobile break point
 
 ## Deployment  
 
